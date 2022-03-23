@@ -1,12 +1,19 @@
+			// if (matrix[y][x] != '1' || matrix[y][x] != '0'
+			// 	|| matrix[y][x] != 'P' || matrix[y][x] != 'E'
+			// 		|| matrix[y][x] != 'C' || matrix[y][x] != 'H' || matrix[y][x] != '\n' || matrix[y][x] != '\0')
+			// {
+			// 	printf("_INVALID_MAP_");
+			// 	exit(0);
+			// }
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tterribi <tterribi@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:46:08 by tterribi          #+#    #+#             */
-/*   Updated: 2022/03/23 18:20:31 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/03/23 19:26:25 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +32,37 @@ void	map_checker(char **matrix)
 		while (matrix[y][x])
 		{
 			printf("matrix[%d][%d]: %c\n", y, x, matrix[y][x]);
-			if (matrix[y][x] != '1' || matrix[y][x] != '0'
-				|| matrix[y][x] != 'P' || matrix[y][x] != 'E'
-					|| matrix[y][x] != 'C' || matrix[y][x] != 'H' || matrix[y][x] != '\n' || matrix[y][x] != '\0')
+			if (matrix[y][x] != '1' && matrix[y][x] != '0'
+				&& matrix[y][x] != 'E' && matrix[y][x] != 'C'
+					&& matrix[y][x] != 'P' && matrix[y][x] != 'H')
 			{
-				printf("_INVALID_MAP_");
+				printf("_INVALID_MAP_, wrong cell: [%d][%d]", y, x);
 				exit(0);
 			}
 			x++;
 		}
 		y++;
+		printf("\n");
 	}
 	printf("good soup");
+}
+
+void	entity_checker(char **matrix)
+{
+	int	p_cont;
+	int e_cont;
+	int c_cont;
+	int h_cont;
+
+	p_cont = 0;
+	e_cont = 0;
+	c_cont = 0;
+	h_cont = 0;
+	while ()
+	{
+		/* code */
+	}
+
 }
 
 int main(void)
@@ -59,11 +85,13 @@ int main(void)
 	i = 0;
 	printf("a\n");
 	matrix[i++] = get_next_line(fd);
+	matrix[0] = ft_strtrim(matrix[i], "\n\0");
 	printf("b\n");
 	while (i < 6)
 	{
 		printf("%d\n", i);
 		matrix[i] = get_next_line(fd);
+		matrix[i] = ft_strtrim(matrix[i], "\n\0");
 		i++;
 	}
 	while (y < 5)
@@ -72,6 +100,7 @@ int main(void)
 		printf("\n");
 		y++;
 	}
+
 	printf("\n");
 	map_checker(matrix);
 }
