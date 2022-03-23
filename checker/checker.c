@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:46:08 by tterribi          #+#    #+#             */
-/*   Updated: 2022/03/23 17:49:26 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/03/23 18:20:31 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@ void	map_checker(char **matrix)
 
 	y = 0;
 	x = 0;
-	while (matrix[y][x])
+	while (matrix[y])
 	{
 		x = 0;
 		while (matrix[y][x])
 		{
-			if (matrix[y][x] != '0' || matrix[y][x] != '1'
+			printf("matrix[%d][%d]: %c\n", y, x, matrix[y][x]);
+			if (matrix[y][x] != '1' || matrix[y][x] != '0'
 				|| matrix[y][x] != 'P' || matrix[y][x] != 'E'
-					|| matrix[y][x] != 'C' || matrix[y][x] != 'H' || matrix[y][x] != '\n')
+					|| matrix[y][x] != 'C' || matrix[y][x] != 'H' || matrix[y][x] != '\n' || matrix[y][x] != '\0')
 			{
 				printf("_INVALID_MAP_");
 				exit(0);
