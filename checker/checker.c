@@ -1,10 +1,3 @@
-			// if (matrix[y][x] != '1' || matrix[y][x] != '0'
-			// 	|| matrix[y][x] != 'P' || matrix[y][x] != 'E'
-			// 		|| matrix[y][x] != 'C' || matrix[y][x] != 'H' || matrix[y][x] != '\n' || matrix[y][x] != '\0')
-			// {
-			// 	printf("_INVALID_MAP_");
-			// 	exit(0);
-			// }
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -13,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:46:08 by tterribi          #+#    #+#             */
-/*   Updated: 2022/03/23 19:26:25 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/03/23 20:00:31 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +40,38 @@ void	map_checker(char **matrix)
 	printf("good soup");
 }
 
+int
+
 void	entity_checker(char **matrix)
 {
 	int	p_cont;
 	int e_cont;
 	int c_cont;
 	int h_cont;
+	int y;
+	int x;
 
 	p_cont = 0;
 	e_cont = 0;
 	c_cont = 0;
 	h_cont = 0;
-	while ()
+	y = 0;
+	while (matrix[y])
 	{
-		/* code */
+		x = 0;
+		while (matrix[y][x])
+		{
+			if (matrix[y][x] == 'P')
+				p_cont++;
+			if (matrix[y][x] == 'E')
+				e_cont++;
+			if (matrix[y][x] == 'C')
+				c_cont++;
+			if (matrix[y][x] == 'H')
+				h_cont++;
+			x++;
+		}
+		y++;
 	}
 
 }
