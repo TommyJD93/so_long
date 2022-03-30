@@ -18,7 +18,7 @@ char	*ft_read_to_backup(int fd, char *backup)
 			return (NULL);
 		}
 		buff[bytes] = '\0';
-		backup = ft_strjoin(backup, buff);
+		backup = ft_strjoin_gnl(backup, buff);
 	}
 	free(buff);
 	return (backup);

@@ -28,7 +28,7 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char *backup, char *buff)
+char	*ft_strjoin_gnl(char *backup, char *buff)
 {
 	size_t	i;
 	size_t	j;
