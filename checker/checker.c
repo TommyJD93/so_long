@@ -6,103 +6,44 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:46:08 by tterribi          #+#    #+#             */
-/*   Updated: 2022/03/30 18:46:21 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/04 13:24:31 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	check_e_cont(int *p_cont, int *e_cont, int *c_cont, int *h_cont)
+void	entity_checker()
 {
-	if (*p_cont < 1)
-		exit(0);
-	if (*e_cont < 1)
-		exit(0);
-	if (*c_cont < 1)
-		exit(0);
-	if (*h_cont < 1)
-		exit(0);
+
 }
 
-void	cont_inc(char c, int *p_cont, int *e_cont, int *c_cont, int *h_cont)
+void	invalid_elements_checker(char *map)
 {
-	if (c == 'P')
-		p_cont++;
-	if (c == 'E')
-		e_cont++;
-	if (c == 'C')
-		c_cont++;
-	if (c == 'H')
-		h_cont++;
-}
+	int	i;
 
-void	entity_checker(char **matrix, int x, int y)
-{
-	int	*p_cont;
-	int	*e_cont;
-	int	*c_cont;
-	int	*h_cont;
-
-
-	p_cont = 0;
-	e_cont = 0;
-	c_cont = 0;
-	h_cont = 0;
-	y = 0;
-	while (matrix[y])
+	i = 0;
+	while (map[i])
 	{
-		x = 0;
-		while (matrix[y][x])
+		if (map[i] != '1' && map[i] != '0' && map[i] != 'E' && map[i] != 'C'
+			&& map[i] != 'P' && map[i] != 'H' && map[i] != '\n')
 		{
-			cont_inc(matrix[y][x], p_cont, e_cont, c_cont, h_cont);
-			x++;
+			printf("_INVALID_MAP_, wrong cell: [%d]", i);
+			exit(0);
 		}
-		y++;
-	}
-	printf("%d\n", *p_cont);
-	printf("%d\n", *e_cont);
-	printf("%d\n", *c_cont);
-	printf("%d\n", *h_cont);
-	check_e_cont(p_cont, e_cont, c_cont, h_cont);
-	printf("okidoki");
-}
-
-void	elements_checker(char **matrix)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	x = 0;
-	while (matrix[y])
-	{
-		x = 0;
-		while (matrix[y][x])
-		{
-			// printf("matrix[%d][%d]: %c\n", y, x, matrix[y][x]);
-			if (matrix[y][x] != '1' && matrix[y][x] != '0'
-				&& matrix[y][x] != 'E' && matrix[y][x] != 'C'
-					&& matrix[y][x] != 'P' && matrix[y][x] != 'H')
-			{
-				printf("_INVALID_MAP_, wrong cell: [%d][%d]", y, x);
-				exit(0);
-			}
-			x++;
-		}
-		y++;
-		printf("\n");
+		i++;
+		// printf("\n");
 	}
 	printf("good soup");
 }
 
-char	*elements_string_manager(char *map)
+void	*elements_string_manager(char *map)
 {
 	int		fd;
 	char	*path;
-	char	*tmp;
 	char	*to_check;
 
 	path = "maps/";
+	printf("%s\n", map);
 	path = ft_strjoin_elements(path, map);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
@@ -111,15 +52,12 @@ char	*elements_string_manager(char *map)
 		exit(EXIT_FAILURE);
 	}
 	write(1, "a\n", 2);
-	while (fd != -1)
-	{
-		write(1, "1\n", 2);
-		tmp = get_next_line(fd);
-		to_check = ft_strjoin(to_check, tmp);
-	}
-	write(1, "b\n", 2);
-	return ("okidoki");
+	to_check = get_next_line(fd);
+	printf("%s", to_check);
+	invalid_elements_checker(to_check);
 }
+
+
 
 int main(int argc, char **argv)
 {
@@ -158,7 +96,7 @@ int main()
 		matrix[i] = ft_strtrim(matrix[i], "\n\0");
 		i++;
 	}
-	elements_checker(matrix);
+	invalid_elements_checker(matrix);
 //	entity_checker(matrix, 0, 0);
 }*/
 

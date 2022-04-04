@@ -9,16 +9,16 @@ typedef struct	s_data {
 }				t_data;
 
 
-int main(void)
-{
-	char	**matrix;
+// int main(void)
+// {
+// 	char	**matrix;
 
 
 
 
 
 
-}
+// }
 
 
 
@@ -35,21 +35,21 @@ int main(void)
 // 	*(unsigned int*)dst = color;
 // }
 
-// int main(void)
-// {
-// 	void *mlx;
-// 	void *mlx_wind;
-// 	void *img;
-// 	char *img_rel_path = "img/Gerry-Scotti-Carriera.xpm";
-// 	int	img_width;
-// 	int	img_height;
+int main(void)
+{
+	void *mlx;
+	void *mlx_wind;
+	void *img;
+	char *img_rel_path = "img/Gerry-Scotti-Carriera.xpm";
+	int	img_width;
+	int	img_height;
 
-// 	mlx = mlx_init();
-// 	mlx_wind = mlx_new_window(mlx, 1920, 1080, "kek");
-// 	img = mlx_xpm_file_to_image(mlx, img_rel_path, &img_width, &img_height);
-// 	mlx_put_image_to_window(mlx, mlx_wind, img, 1 * 64, 1 * 64);
-// 	mlx_loop(mlx);
-// }
+	mlx = mlx_init();
+	mlx_wind = mlx_new_window(mlx, 1920, 1080, "kek");
+	img = mlx_xpm_file_to_image(mlx, img_rel_path, &img_width, &img_height);
+	mlx_put_image_to_window(mlx, mlx_wind, img, 1 * 64, 1 * 64);
+	mlx_loop(mlx);
+}
 
 // int	main(void)
 // {
