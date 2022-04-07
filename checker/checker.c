@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tterribi <tterribi@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:46:08 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/07 18:48:53 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/07 19:50:48 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	invalid_elements_checker(char *map)
 	}
 	printf("\n");
 	int rows = ft_mat_row(test);
-	//write(1, "a\n", 2);
+	write(1, "a\n", 2);
 	int col = ft_mat_col(test[0]);
 	printf("rows:%d\n", rows);
 	printf("col:%d\n", col);
@@ -108,7 +108,7 @@ void	elements_string_manager(t_entities entities, char *map)
 	int		fd;
 	char	*path;
 	char	*to_check;
-	
+
 	path = "maps/";
 	//printf("%s\n", map);
 	path = ft_strjoin_elements(path, map);
@@ -118,7 +118,7 @@ void	elements_string_manager(t_entities entities, char *map)
 		printf("read error, check the map name");
 		exit(EXIT_FAILURE);
 	}
-	write(1, "a\n", 2);
+	//write(1, "a\n", 2);
 	to_check = get_next_line(fd);
 	invalid_elements_checker(to_check);
 	entitiy_checker(entities, to_check);
@@ -186,7 +186,7 @@ int main(void)
 	matrix = (char **)malloc(sizeof(char *) * 5);
 	for (int i = 0; i < 9; i++)
 		matrix[i] = (char*)malloc(sizeof(char) * 9);
-	
+
 	printf("a\n");
 	printf("gnl output:\n");
 	i = 0;
@@ -205,7 +205,7 @@ int main(void)
 		i++;
 	}
 	matrix[0] = ft_strtrim(matrix[i], "\n");
-	printf("matrix:\n"); 
+	printf("matrix:\n");
 	while (y < 5)
 	{
 		printf("matrix[%d]: %s ", y, matrix[y]);

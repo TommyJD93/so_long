@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:55:51 by tterribi          #+#    #+#             */
-/*   Updated: 2022/02/09 13:22:00 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/07 19:48:32 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include "../libft/libft.h"
 
 int		ft_printf(const char *a, ...);
 int		ft_print_unsigned(unsigned int n);
@@ -42,6 +43,7 @@ int		ft_ptr_len(uintptr_t num);
 void	ft_put_ptr(uintptr_t num);
 int		ft_print_ptr(unsigned long long ptr);
 
+int		lenght(int nb, int base);
 void	ft_putchar_fd(char c, int fd);
 char	*ft_itoa(int nb);
 void	ft_putchar_void(char c);
