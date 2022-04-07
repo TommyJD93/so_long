@@ -44,8 +44,6 @@ int main(void)
 	int	img_width;
 	int	img_height;
 
-	mlx = mlx_init();
-	mlx_wind = mlx_new_window(mlx, 1920, 1080, "kek");
 	img = mlx_xpm_file_to_image(mlx, img_rel_path, &img_width, &img_height);
 	mlx_put_image_to_window(mlx, mlx_wind, img, 1 * 64, 1 * 64);
 	mlx_loop(mlx);

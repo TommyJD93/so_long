@@ -1,0 +1,47 @@
+NAME		= so_long
+
+# MLX #
+MLX_PATH	= mlx/
+MLX_LIB		= $(MLX_PATH)libmlx.a
+
+# LIBFT #
+LIBFT_PATH	= libft/
+LIBFT_LIB	= $(LIBFT_PATH)libft.a
+
+# FILES #
+CFILES		= main.c \
+
+# COMPILATION #
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror -g
+MLX_FLAGS	= -Lmlx -lmlx -framework OpenGL -framework AppKit
+RM			= rm -fr
+
+# COLORS #
+GREEN		=	\e[38;5;118m
+RED			=	\033[0;31m
+RESET		=	\e[0m
+_SUCCESS	=	[$(GREEN)SUCCESS$(RESET)]
+_INFO		=	[$(RED)REMOVED$(RESET)]
+
+OBJECTS = $(CFILES:.c=.o)
+
+all: ${LIBFT_LIB}
+
+${LIBFT_LIB}:
+	@make -s all -C ${LIBFT_PATH}
+
+${MLX_LIB}:
+	@make -s -C ${MLX_PATH}
+
+clean:
+	@${RM} ${NAME}
+	@printf "$(_INFO) so_long removed.\n"
+	
+fclean:
+	@${RM}
+
+norm: all
+		norminette server.c client.c
+
+.PHONY: all clean fclean re norm
