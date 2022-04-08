@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tterribi <tterribi@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:24:59 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/07 19:46:57 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/08 09:20:38 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,21 @@ typedef struct s_entities
 	int	c_cont;
 	int	h_cont;
 }	t_entities;
+
+typedef struct s_win
+{
+	void	*mlx;
+	void	*mlx_wind;
+
+}	t_win;
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_data;
+
 //gnl
 char	*get_next_line(int fd);
 
