@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tterribi <tterribi@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:46:08 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/07 19:50:48 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/08 17:23:22 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,50 +44,25 @@ void	entitiy_checker(t_entities entities, char *map)
 	entity_counter(entities, map);
 	if (entities.p_cont != 1)
 	{
-		ft_printf("_INVALID_NUMBER_OF_PLAYERS");
+		ft_printf("\033[31m_INVALID_NUMBER_OF_PLAYERS\033[0m]");
 		exit(0);
 	}
 	if (entities.e_cont != 1)
 	{
-		ft_printf("_INVALID_NUMBER_OF_EXIT");
+		ft_printf("\033[31m_INVALID_NUMBER_OF_EXIT\033[0m]");
 		exit(0);
 	}
 	if (entities.c_cont < 1)
 	{
-		ft_printf("_INVALID_NUMBER_OF_COLLECTIBLES");
+		ft_printf("\033[31m_INVALID_NUMBER_OF_COLLECTIBLES\033[0m]");
 		exit(0);
 	}
+	printf("[\033[32mentitiy checker\033[0m]\n");
 }
 
 void	invalid_elements_checker(char *map)
 {
 	int	i;
-
-	//test
-	char	**test;
-	int	y,x = 0;
-	printf("-----test-----\n");
-	test = ft_split(map, '\n');
-	while (test[y])
-	{
-		x = 0;
-		while (test[y][x])
-		{
-			printf("%c ", test[y][x]);
-			x++;
-		}
-		printf("\n");
-		y++;
-	}
-	printf("\n");
-	int rows = ft_mat_row(test);
-	write(1, "a\n", 2);
-	int col = ft_mat_col(test[0]);
-	printf("rows:%d\n", rows);
-	printf("col:%d\n", col);
-	printf("--------------\n");
-	//----------------------------//
-
 
 	i = 0;
 	while (map[i])
@@ -100,7 +75,7 @@ void	invalid_elements_checker(char *map)
 		}
 		i++;
 	}
-	//printf("good soup");
+	printf("[\033[32minvalid elements passed\033[0m]\n");
 }
 
 void	elements_string_manager(t_entities entities, char *map)
@@ -110,18 +85,17 @@ void	elements_string_manager(t_entities entities, char *map)
 	char	*to_check;
 
 	path = "maps/";
-	//printf("%s\n", map);
 	path = ft_strjoin_elements(path, map);
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
 	{
-		printf("read error, check the map name");
+		printf("\033[31mread error, check the map name\033[0m]");
 		exit(EXIT_FAILURE);
 	}
-	//write(1, "a\n", 2);
 	to_check = get_next_line(fd);
+	write(1, "b\n", 2);
 	invalid_elements_checker(to_check);
-	entitiy_checker(entities, to_check);
+	wall_checker(to_check);
 }
 
 int main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/08 09:09:44 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/08 09:10:08 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/08 16:42:12 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	ft_mat_col(char *str)
 	count = 0;
 	while (str[count])
 		count++;
-	return (count);
+	return (count-1);
 }

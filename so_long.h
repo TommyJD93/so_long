@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:24:59 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/08 09:20:38 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/08 17:15:15 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ typedef struct s_win
 	void	*mlx_wind;
 
 }	t_win;
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}	t_data;
+// typedef struct s_data {
+// 	void	*img;
+// 	char	*addr;
+// 	int		bits_per_pixel;
+// 	int		line_length;
+// 	int		endian;
+// }	t_data;
 
 //gnl
 char	*get_next_line(int fd);
@@ -58,11 +58,12 @@ char	*get_next_line(int fd);
 char	*ft_strjoin_gnl(char *backup, char *buff);
 char	*ft_get_line(char *backup);
 char	*ft_backup(char *backup);
+char	*ft_strchr_gnl(char *s, int c);
 char	*ft_read_to_backup(int fd, char *backup);
-
-//utils
 
 // checekr utils
 char	*ft_strjoin_elements(char *s1, char *s2);
 
+// checker
+void	wall_checker(char *map);
 #endif

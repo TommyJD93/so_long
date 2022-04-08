@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 19:40:17 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/08 09:10:54 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/08 16:42:18 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int	ft_mat_row(char **matrix)
 			x++;
 		y++;
 	}
-	return (y);
+	return (y-1);
 }
