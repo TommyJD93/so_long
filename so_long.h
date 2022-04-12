@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:24:59 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/08 17:15:15 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:32:40 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,25 @@
 #  define BUFFER_SIZE 1000
 # endif
 
+enum e_keycode
+{
+	KEY_UP = 13,
+	KEY_DOWN = 1,
+	KEY_LEFT = 0,
+	KEY_RIGHT = 2,
+	RESET = 15,
+	ESC = 53
+};
+
 typedef struct s_entities
 {
+	//counters
 	int	p_cont;
 	int	e_cont;
 	int	c_cont;
 	int	h_cont;
+
+	
 }	t_entities;
 
 typedef struct s_win
@@ -66,4 +79,7 @@ char	*ft_strjoin_elements(char *s1, char *s2);
 
 // checker
 void	wall_checker(char *map);
+
+//quit
+void	quit();
 #endif

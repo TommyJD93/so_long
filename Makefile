@@ -23,18 +23,17 @@ UP = "\033[A"
 CUT = "\033[K"
 
 CFILES = main.c\
-		
 
 OBJECTS = $(CFILES:.c=.o)
 
-all: subsystems $(NAME)
+all: libraries $(NAME)
 
 %.o : %.c
 	@echo $(Y)Compiling [$<]...$(X)
 	@$(CC) $(CFLAGS) -Imlx -c -o $@ $<
 	@printf $(UP)$(CUT)
 
-subsystems:
+libraries:
 	@echo $(B)
 	make -C $(MLX_PATH) all
 	@echo $(B)
@@ -63,6 +62,6 @@ fclean: clean
 re: fclean all
 
 norm:
-	norminette libft init.c key_hook.c map.c move.c parse_input.c put_imgs.c so_long.c so_long.h win.c
+	norminette libft ft_printf utils checker
 
 .PHONY: all clean fclean re norm

@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:46:08 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/08 17:23:22 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/08 17:35:45 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,15 +98,13 @@ void	elements_string_manager(t_entities entities, char *map)
 	wall_checker(to_check);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_entities entities;
-
+	t_entities	entities;
 
 	elements_string_manager(entities, argv[1]);
-	return 0;
+	return (0);
 }
-
 
 /*
 int main()
