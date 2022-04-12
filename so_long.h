@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:24:59 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/12 17:32:40 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:51:46 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,21 @@ enum e_keycode
 	ESC = 53
 };
 
+typedef struct s_map
+{
+	char	**map;
+	
+	//positions
+	int p_x;
+	int p_y;
+	int e_x;
+	int e_y;
+	int c_x;
+	int c_y;
+	int h_x;
+	int h_y;
+}	t_map;
+
 typedef struct s_entities
 {
 	//counters
@@ -47,7 +62,9 @@ typedef struct s_entities
 	int	c_cont;
 	int	h_cont;
 
-	
+
+	//idk
+
 }	t_entities;
 
 typedef struct s_win
@@ -79,6 +96,12 @@ char	*ft_strjoin_elements(char *s1, char *s2);
 
 // checker
 void	wall_checker(char *map);
+
+//movements
+void	p_moveup(t_entities entities);
+void	p_movedown(t_entities entities);
+void	p_moveleft(t_entities entities);
+void	p_moveright(t_entities entities);
 
 //quit
 void	quit();

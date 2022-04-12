@@ -2,13 +2,13 @@
 
 void	quit()//add the shit to be freed
 {
-	exit(0);
 	// add free of all the allocated stuff;
+	exit(0);
 }
 
 void	moveto()
 {
-	
+
 }
 
 int	input(int key)
@@ -24,5 +24,5 @@ int	input(int key)
 	else if (key == RESET)
 
 	else if (key == ESC)
-		quit
+		quit();
 }
