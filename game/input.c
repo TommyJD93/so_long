@@ -6,6 +6,8 @@ void	quit()//add the shit to be freed
 	exit(0);
 }
 
+void
+
 void	moveto()
 {
 

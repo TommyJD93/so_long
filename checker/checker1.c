@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:15:08 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/08 17:24:21 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/20 18:39:30 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	conditions(char **matrix, int max_y, int max_x)
 	}
 }
 
-void	wall_checker(char *map)
+void	wall_checker(char *map, t_map struct_map)
 {
 	char	**matrix;
 	int		y;
@@ -51,8 +51,8 @@ void	wall_checker(char *map)
 
 	matrix = ft_split(map, '\n');
 	y = -1;
-	max_x = ft_mat_col(matrix[0]);
-	max_y = ft_mat_row(matrix);
+	struct_map.map_x = ft_mat_col(matrix[0]);
+	struct_map.map_y= ft_mat_row(matrix);
 	conditions(matrix, max_y, max_x);
 	printf("[\033[32mwall checker\033[0m]\n");
 }

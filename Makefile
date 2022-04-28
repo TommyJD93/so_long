@@ -22,7 +22,7 @@ X = "\033[0m"
 UP = "\033[A"
 CUT = "\033[K"
 
-CFILES = main.c\
+CFILES = so_long.c utils/gnl.c utils/gnl_utils.c checker/chekcer_utils.c \
 
 OBJECTS = $(CFILES:.c=.o)
 
@@ -35,7 +35,7 @@ all: libraries $(NAME)
 
 libraries:
 	@echo $(B)
-	make -C $(MLX_PATH) all
+	make -s -C $(MLX_PATH) all
 	@echo $(B)
 	make -C $(LIBFT_PATH) all
 
@@ -44,7 +44,7 @@ $(NAME): $(OBJECTS)
 	@echo $(G)Finished [$(CFILES)]$(X)
 	@echo
 	@echo $(Y)Compiling [$(NAME)]...$(X)
-	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(OBJECTS) $(MLX_LIB) $(LIBFT_LIB) -o $(NAME)
+	@$(CC) $(CFLAGS) $(MLX_FLAGS) $(MLX_LIB) $(LIBFT_LIB) $(OBJECTS) -o $(NAME)
 	@echo $(G)Finished [$(NAME)]$(X)
 
 clean:
@@ -54,7 +54,7 @@ clean:
 	@echo $(R)Removed [$(OBJECTS)]$(X)
 
 fclean: clean
-	@make -C $(MLX_PATH) fclean
+	@make -C $(MLX_PATH) clean
 	@make -C $(LIBFT_PATH) fclean
 	@rm -f $(NAME)
 	@echo $(R)Removed [$(NAME)]$(X)

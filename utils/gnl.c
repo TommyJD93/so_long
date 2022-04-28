@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 11:44:15 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/08 16:28:30 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/28 15:13:35 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_read_to_backup(int fd, char *backup)
 
 char	*get_next_line(int fd)
 {
-	char		*line;
+	//char		*line;
 	static char	*backup;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)

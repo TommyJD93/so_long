@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:46:08 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/08 17:35:45 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/28 15:05:54 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,33 +78,35 @@ void	invalid_elements_checker(char *map)
 	printf("[\033[32minvalid elements passed\033[0m]\n");
 }
 
-void	elements_string_manager(t_entities entities, char *map)
-{
-	int		fd;
-	char	*path;
-	char	*to_check;
+// void	elements_string_manager(char *map, t_map struct_map)
+// {
+// 	int		fd;
+// 	char	*path;
+// 	char	*to_check;
 
-	path = "maps/";
-	path = ft_strjoin_elements(path, map);
-	fd = open(path, O_RDONLY);
-	if (fd == -1)
-	{
-		printf("\033[31mread error, check the map name\033[0m]");
-		exit(EXIT_FAILURE);
-	}
-	to_check = get_next_line(fd);
-	write(1, "b\n", 2);
-	invalid_elements_checker(to_check);
-	wall_checker(to_check);
-}
+// 	path = "maps/";
+// 	path = ft_strjoin_elements(path, map);
+// 	fd = open(path, O_RDONLY);
+// 	if (fd == -1)
+// 	{
+// 		printf("\033[31mread error, check the map name\033[0m]");
+// 		exit(EXIT_FAILURE);
+// 	}
+// 	to_check = get_next_line(fd);
+// 	write(1, "b\n", 2);
+// 	invalid_elements_checker(to_check);
+// 	wall_checker(to_check, struct_map);
+// 	printf("[\033[32mall check passed\033[0m]\n");
+// }
 
-int	main(int argc, char **argv)
-{
-	t_entities	entities;
+// int	main(int argc, char **argv)
+// {
+// 	t_map	map;
 
-	elements_string_manager(entities, argv[1]);
-	return (0);
-}
+// 	elements_string_manager(argv[1], map);
+// 	return (0);
+// }
+
 
 /*
 int main()

@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:24:59 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/12 17:51:46 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/04/28 14:52:31 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 #  define BUFFER_SIZE 1000
 # endif
 
+# define IMG_SIZE 64
+
 enum e_keycode
 {
 	KEY_UP = 13,
@@ -38,22 +40,17 @@ enum e_keycode
 	RESET = 15,
 	ESC = 53
 };
-
-typedef struct s_map
-{
+typedef struct s_data {
+	void	*mlx;
+	void	*mlx_wind;
+	void	*img;
+	int		width;
+	int		height;
+	char	*addr;
+	void	*path_map;
+	int		line_length;
 	char	**map;
-	
-	//positions
-	int p_x;
-	int p_y;
-	int e_x;
-	int e_y;
-	int c_x;
-	int c_y;
-	int h_x;
-	int h_y;
-}	t_map;
-
+}				t_data;
 typedef struct s_entities
 {
 	//counters
@@ -61,25 +58,27 @@ typedef struct s_entities
 	int	e_cont;
 	int	c_cont;
 	int	h_cont;
-
-
 	//idk
+}	t_entities; 
 
-}	t_entities;
-
-typedef struct s_win
+typedef struct s_map
 {
-	void	*mlx;
-	void	*mlx_wind;
+	char	**map;
+	char	*name;
+	//positions
+	int		map_x;
+	int		map_y;
+	int		p_x;
+	int		p_y;
+	int		e_x;
+	int		e_y;
+	int		c_x;
+	int		c_y;
+	int		h_x;
+	int		h_y;
+	t_entities entities;
+}	t_map;
 
-}	t_win;
-// typedef struct s_data {
-// 	void	*img;
-// 	char	*addr;
-// 	int		bits_per_pixel;
-// 	int		line_length;
-// 	int		endian;
-// }	t_data;
 
 //gnl
 char	*get_next_line(int fd);
@@ -95,7 +94,7 @@ char	*ft_read_to_backup(int fd, char *backup);
 char	*ft_strjoin_elements(char *s1, char *s2);
 
 // checker
-void	wall_checker(char *map);
+void	wall_checker(char *map, t_map struct_map);
 
 //movements
 void	p_moveup(t_entities entities);
@@ -103,6 +102,10 @@ void	p_movedown(t_entities entities);
 void	p_moveleft(t_entities entities);
 void	p_moveright(t_entities entities);
 
+//mammt fe bucchin n'ha capit che te pattere pop
+
+//void	draw_wall(t_win g);
 //quit
 void	quit();
+void	error_message(char *s);
 #endif
