@@ -23,7 +23,7 @@ void	elements_string_manager(char *map, t_data *var)
 int	main(int argc, char **argv)
 {
 	t_data	var;
-
+-
 	if(argc != 2)
 		return (0);
 	elements_string_manager(argv[1], &var);
