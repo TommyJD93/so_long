@@ -43,14 +43,15 @@ enum e_keycode
 typedef struct s_data {
 	void	*mlx;
 	void	*mlx_wind;
-	void	*img;
+	void	*path_map;
+	char	**map;
+	t_cont	*imgs;
 	int		width;
 	int		height;
-	char	*addr;
-	void	*path_map;
-	int		line_length;
-	char	**map;
 	int		c_cont;
+	int		p_x;
+	int		p_y;
+	int		moves;
 }				t_data;
 
 typedef struct s_dic {
@@ -118,7 +119,7 @@ void	wall_checker(char *map, t_map struct_map);
 
 //movements
 int		check(int keycode, t_map *map);
-void	p_moveup(t_map map);
+void	p_moveup(t_data *var, t_cont *imgs);
 void	p_movedown(t_map map);
 void	p_moveleft(t_map map);
 void	p_moveright(t_map map);

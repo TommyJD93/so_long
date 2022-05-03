@@ -92,7 +92,11 @@ void	render(t_data *var, t_cont imgs)
 				mlx_put_image_to_window(var->mlx, var->mlx_wind, imgs.wall.img, j * 64, i * 64);
 			// else if (var->map[i][j] == '0')
 			else if (var->map[i][j] == 'P')
+			{
 				mlx_put_image_to_window(var->mlx, var->mlx_wind, imgs.player.img, j * 64, i * 64);
+				var->p_x = j;
+				var->p_y = i;
+			}
 			//else
 				//imgs.wall.addr="si";
 			j++;

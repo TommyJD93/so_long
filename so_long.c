@@ -29,8 +29,9 @@ int	main(int argc, char **argv)
 	var.mlx = mlx_init();
 	var.mlx_wind = mlx_new_window(var.mlx, (var.width + 1) * 64, (var.height + 1) * 64, "sono frocio");
 	imgs = load_imgs(var.mlx);
+	var.imgs = &imgs;
 	render(&var, imgs);
-	mlx_hook(var.mlx_wind, 3, 1L << 1, check(map, var), &map);
+	mlx_hook(var.mlx_wind, 3, 1L << 1, check, &var);
 	mlx_loop(var.mlx);
 	return 0;
 }
