@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 {
 	t_data	var;
 	t_cont	imgs;
-	t_map	map;
+//	t_map	map;
 	if(argc != 2)
 		return (0);
 	elements_string_manager(argv[1], &var);

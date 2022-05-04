@@ -40,19 +40,6 @@ enum e_keycode
 	RESET = 15,
 	ESC = 53
 };
-typedef struct s_data {
-	void	*mlx;
-	void	*mlx_wind;
-	void	*path_map;
-	char	**map;
-	t_cont	*imgs;
-	int		width;
-	int		height;
-	int		c_cont;
-	int		p_x;
-	int		p_y;
-	int		moves;
-}				t_data;
 
 typedef struct s_dic {
 	void	*img;
@@ -69,15 +56,31 @@ typedef struct s_cont {
 	// t_dic	coin;
 	// t_dic	coin1;
 	// t_dic	coin2;
+	t_dic	loose;
 	t_dic	wall;
 	t_dic	Void;
-	// t_dic	enemy;
+	t_dic	hostile;
 	// t_dic	enemy1;
 	// t_dic	enemy2;
 	// t_dic	exit;
 	t_dic	background;
 	// t_dic	background2;
 }				t_cont;
+
+typedef struct s_data {
+	void	*mlx;
+	void	*mlx_wind;
+	void	*path_map;
+	char	**map;
+	t_cont	*imgs;
+	int		width;
+	int		height;
+	int		c_cont;
+	int		p_x;
+	int		p_y;
+	int		moves;
+}				t_data;
+
 
 //------------useless------------//
 

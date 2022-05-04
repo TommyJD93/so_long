@@ -5,12 +5,27 @@ void	you_won()
 
 }
 
-bool	move_helper(t_data *var)
+void	you_lost(t_data *var, int x_dest, int y_dest)
+{
+	mlx_put_image_to_window(var->mlx, var->mlx_wind, &var->imgs->background.img, var->p_x * 64, var->p_y * 64);
+	mlx_put_image_to_window(var->mlx, var->mlx_wind, &var->imgs->loose.img, x_dest * 64, y_dest * 64);
+}
+
+bool	move_helper(t_data *var, int x_dest, int y_dest)
 {
 	if (var->map[x_dest][y_dest] == '1')
 		return (false);
+	if (var->map[x_dest][y_dest] == '0')
+		var->p_x = x_dest;
+		var->p_y = y_dest;
+		return (true);
 	if (var->map[x_dest][y_dest] == 'C')
-		mlx_put_image_to_window(var->mlx, var->mlx_wind, imgs->player.img, x_dest * 64, y_dest * 64);
+	{
+		mlx_put_image_to_window(var->mlx, var->mlx_wind, &var->imgs->background.img, x_dest * 64, y_dest * 64);
+		var->p_x = x_dest;
+		var->p_y = y_dest;
+		return (true);
+	}
 	if (var->map[x_dest][y_dest] == 'H')
 	if (var->map[x_dest][y_dest] == 'E' && var->c_cont == 0)
 		you_won();
@@ -21,7 +36,7 @@ bool	move_helper(t_data *var)
 int	check(int keycode, t_data *var)
 {
 	if (keycode == 13 || keycode == 126)
-		p_moveup(var, var->imgs);
+		p_moveup(var);
 	if (keycode == 0 || keycode == 123)
 		
 	if (keycode == 1 || keycode == 125)
@@ -33,10 +48,9 @@ int	check(int keycode, t_data *var)
 
 void	p_moveup(t_data *var, t_cont *imgs)
 {
-	if (!move_helper(var->map))
+	if (!move_helper(var->map, var->p_x, var->p_y))
 	{
-
-		mlx_put_image_to_window(var->mlx, var->mlx_wind, &var->imgs->player.img, j * 64, i * 64);
+		mlx_put_image_to_window(var->mlx, var->mlx_wind, &var->imgs->player.img, var->p_x * 64, var->p_y * 64);
 	}
 		return ;
 
