@@ -22,7 +22,7 @@ X = "\033[0m"
 UP = "\033[A"
 CUT = "\033[K"
 
-CFILES = so_long.c utils/gnl.c utils/gnl_utils.c checker/chekcer_utils.c game/render.c \
+CFILES = so_long.c utils/gnl.c utils/gnl_utils.c checker/chekcer_utils.c game/render.c game/movements.c \
 
 OBJECTS = $(CFILES:.c=.o)
 

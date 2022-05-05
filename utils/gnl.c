@@ -12,41 +12,41 @@
 
 #include "../so_long.h"
 
-char	*ft_read_to_backup(int fd, char *backup)
+char	*line(char *a, int i)
 {
-	char	*buff;
-	int		bytes;
+	char	*new_a;
 
-	buff = malloc(BUFFER_SIZE + 1);
-	if (!buff)
-		return (NULL);
-	bytes = 1;
-	while (!ft_strchr_gnl(backup, '\n') && bytes != 0)
+	new_a = malloc(i + 1);
+	i = 0;
+	while (a[i])
 	{
-		bytes = read(fd, buff, BUFFER_SIZE);
-		if (bytes == -1)
-		{
-			free(buff);
-			return (NULL);
-		}
-		buff[bytes] = '\0';
-		backup = ft_strjoin_gnl(backup, buff);
+		new_a[i] = a[i];
+		i++;
 	}
-	free(buff);
-	return (backup);
+	new_a[i] = '\0';
+	return (new_a);
 }
 
 char	*get_next_line(int fd)
 {
-	//char		*line;
-	static char	*backup;
+	char	a[999999];
+	char	buffer[1];
+	char	*new_a;
+	int		i;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
-	backup = ft_read_to_backup(fd, backup);
-	// if (!backup)
-	// 	return (NULL);
-	//				 line = ft_get_line(backup);
-	// backup = ft_backup(backup);
-	return (backup);
+	if (fd < 0)
+		return (NULL);
+	i = 0;
+	a[i] = 0;
+	while (read(fd, buffer, 1) == 1)
+	{
+		a[i] = buffer[0];
+		a[i + 1] = '\0';
+		if (a[i] == '\0')
+			break ;
+		i++;
+	}
+	new_a = line(a, i);
+	return (new_a);
 }
+

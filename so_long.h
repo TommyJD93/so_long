@@ -31,15 +31,20 @@
 
 # define IMG_SIZE 64
 
-enum e_keycode
+typedef enum e_keys
 {
+	ESC = 53,
 	KEY_UP = 13,
 	KEY_DOWN = 1,
 	KEY_LEFT = 0,
 	KEY_RIGHT = 2,
-	RESET = 15,
-	ESC = 53
-};
+	ARROW_UP = 126,
+	ARROW_DOWN = 125,
+	ARROW_LEFT = 123,
+	ARROW_RIGHT = 124,
+	QUIT = 36,
+	START = 76,
+}	t_keys;
 
 typedef struct s_dic {
 	void	*img;
@@ -123,10 +128,12 @@ void	wall_checker(char *map, t_map struct_map);
 
 //movements
 int		check(int keycode, t_data *var);
-void	p_moveup(t_data *var);
-void	p_movedown(t_map map);
-void	p_moveleft(t_map map);
-void	p_moveright(t_map map);
+
+void	you_lost(t_data *var);
+// int		p_moveup(t_data *var);
+// void	p_movedown(t_map map);
+// void	p_moveleft(t_map map);
+// void	p_moveright(t_map map);
 
 //mammt fe bucchin n'ha capit che te patt pop
 

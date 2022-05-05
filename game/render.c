@@ -76,23 +76,21 @@ void	render(t_data *var, t_cont imgs)
 {
 	int	i;
 	int	j;
+	int	h;
 
 	i = 0;
-	printf("CULO\n");
-	printf("pisello\n");
-
-
 	while (var->map[i])
 	{
 		j = 0;
-		printf("i: %d\n", i);
 		while (var->map[i][j])
 		{
 			mlx_put_image_to_window(var->mlx, var->mlx_wind, imgs.Void.img, j * 64, i * 64);
-			printf("j: %d\n", j);
 			if (var->map[i][j] == '1')
 				mlx_put_image_to_window(var->mlx, var->mlx_wind, imgs.wall.img, j * 64, i * 64);
-			// else if (var->map[i][j] == '0')
+			if (var->map[i][j] == 'C')
+				mlx_put_image_to_window(var->mlx, var->mlx_wind, mlx_xpm_file_to_image(var->mlx, "img/coins.xpm", &h, &h), j * 64, i * 64);
+			if (var->map[i][j] == 'E')
+				mlx_put_image_to_window(var->mlx, var->mlx_wind, mlx_xpm_file_to_image(var->mlx, "img/exit.xpm", &h, &h), j * 64, i * 64);
 			else if (var->map[i][j] == 'P')
 			{
 				mlx_put_image_to_window(var->mlx, var->mlx_wind, imgs.player.img, j * 64, i * 64);
@@ -105,6 +103,4 @@ void	render(t_data *var, t_cont imgs)
 		}
 		i++;
 	}
-	printf("cacca");
 }
-
