@@ -57,6 +57,7 @@ typedef struct s_cont {
 	// t_dic	coin1;
 	// t_dic	coin2;
 	t_dic	loose;
+	t_dic	win;
 	t_dic	wall;
 	t_dic	Void;
 	t_dic	hostile;
@@ -121,8 +122,8 @@ char	*ft_strjoin_elements(char *s1, char *s2);
 void	wall_checker(char *map, t_map struct_map);
 
 //movements
-int		check(int keycode, t_map *map);
-void	p_moveup(t_data *var, t_cont *imgs);
+int		check(int keycode, t_data *var);
+void	p_moveup(t_data *var);
 void	p_movedown(t_map map);
 void	p_moveleft(t_map map);
 void	p_moveright(t_map map);

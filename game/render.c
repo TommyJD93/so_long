@@ -59,13 +59,15 @@ t_cont	load_imgs(void *mlx)
 	// imgs.coin = load_img(mlx, "sprites/64px/Coin/Coin.xpm");
 	// imgs.coin1 = load_img(mlx, "sprites/64px/Coin/Coin_1.xpm");
 	// imgs.coin2 = load_img(mlx, "sprites/64px/Coin/Coin_2.xpm");
+	imgs.loose = load_img(mlx, "img/loose.xpm");
+	imgs.win = load_img(mlx, "img/win.xpm");
 	imgs.wall = load_img(mlx, "img/wall.xpm");
 	imgs.Void = load_img(mlx, "img/Void.xpm");
 	// imgs.enemy = load_img(mlx, "sprites/64px/Enemy/Enemy.xpm");
 	// imgs.enemy1 = load_img(mlx, "sprites/64px/Enemy/Enemy_1.xpm");
 	// imgs.enemy2 = load_img(mlx, "sprites/64px/Enemy/Enemy_2.xpm");
 	// imgs.exit = load_img(mlx, "sprites/64px/Exit/Exit.xpm");
-	//imgs.background = load_img(mlx, "sprites/64px/Background/Background.xpm");
+	imgs.background = load_img(mlx, "img/Void.xpm");
 	// imgs.background2 = load_img(mlx, "sprites/64px/Background/Background2.xpm");
 	return (imgs);
 }
