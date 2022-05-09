@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 17:24:59 by tterribi          #+#    #+#             */
-/*   Updated: 2022/05/02 16:20:42 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/05/09 15:46:36 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,20 +58,26 @@ typedef struct s_cont {
 	t_dic	player;
 	// t_dic	player1;
 	// t_dic	player2;
-	// t_dic	coin;
-	// t_dic	coin1;
+	t_dic	coin;
+	t_dic	coin1;
 	// t_dic	coin2;
 	t_dic	loose;
 	t_dic	win;
 	t_dic	wall;
 	t_dic	Void;
-	t_dic	hostile;
+	t_dic	enemy;
 	// t_dic	enemy1;
 	// t_dic	enemy2;
-	// t_dic	exit;
+	t_dic	exit;
+	t_dic	exit1;
 	t_dic	background;
 	// t_dic	background2;
-}				t_cont;
+}	t_cont;
+
+typedef struct s_coin	{
+	int	c_x;
+	int	c_y;
+}	t_coin;
 
 typedef struct s_data {
 	void	*mlx;
@@ -79,11 +85,14 @@ typedef struct s_data {
 	void	*path_map;
 	char	**map;
 	t_cont	*imgs;
+	t_coin	*coins;
 	int		width;
 	int		height;
 	int		c_cont;
 	int		p_x;
 	int		p_y;
+	int		e_x;
+	int		e_y;
 	int		moves;
 }				t_data;
 
@@ -146,4 +155,6 @@ void	render(t_data *var, t_cont imgs);
 //quit
 void	quit();
 void	error_message(char *s);
+//animations
+int		animations(t_data *var);
 #endif
