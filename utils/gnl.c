@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 11:44:15 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/28 15:13:35 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/05/26 11:52:26 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	i = 0;
 	a[i] = 0;
-	while (read(fd, buffer, 1) == 1)
+	while (read(fd, buffer, 1))
 	{
 		a[i] = buffer[0];
 		a[i + 1] = '\0';
@@ -49,4 +49,3 @@ char	*get_next_line(int fd)
 	new_a = line(a, i);
 	return (new_a);
 }
-

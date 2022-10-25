@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chekcer_utils.c                                    :+:      :+:    :+:   */
+/*   checker_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tterribi <tterribi@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:13:12 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/07 19:47:30 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/06/01 16:37:22 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ char	*ft_strjoin_elements(char *s1, char *s2)
 	int		i;
 	int		j;
 	char	*str;
+	char	*old_str;
 
 	i = 0;
 	j = 0;
@@ -34,6 +35,8 @@ char	*ft_strjoin_elements(char *s1, char *s2)
 		i++;
 		j++;
 	}
+	old_str = str;
 	str = ft_strjoin(str, ".ber");
+	free(old_str);
 	return (str);
 }

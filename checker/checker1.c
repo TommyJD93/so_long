@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 16:15:08 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/20 18:39:30 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/06/01 17:52:41 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	map_error(void)
 {
-	printf("\033[31m_MAP_INVALID_BORDERS_\033[0m");
+	ft_printf("\033[31m_MAP_INVALID_BORDERS_\033[0m");
 	exit(0);
 }
 
@@ -41,18 +41,35 @@ void	conditions(char **matrix, int max_y, int max_x)
 	}
 }
 
-void	wall_checker(char *map, t_map struct_map)
+void	wall_checker(char *map, t_data *var)
 {
 	char	**matrix;
-	int		y;
-	int		x;
-	int		max_y;
-	int		max_x;
 
 	matrix = ft_split(map, '\n');
-	y = -1;
-	struct_map.map_x = ft_mat_col(matrix[0]);
-	struct_map.map_y= ft_mat_row(matrix);
-	conditions(matrix, max_y, max_x);
-	printf("[\033[32mwall checker\033[0m]\n");
+	var->width = ft_mat_col(matrix[0]);
+	var->height = ft_mat_row(matrix);
+	conditions(matrix, var->height, var->width);
+	ft_printf("[\033[32mwall checker\033[0m]\n");
+	free_matrix(matrix);
+}
+
+void	print_moves(t_data *var)
+{
+	char	*s;
+
+	s = ft_itoa(var->moves);
+	img_selector(var, 0, 1);
+	img_selector(var, 0, 0);
+	mlx_string_put(var->mlx, var->mlx_wind, 10, 15, 0x0, "MOVES: ");
+	mlx_string_put(var->mlx, var->mlx_wind, 8, 14, 0x0, "MOVES: ");
+	mlx_string_put(var->mlx, var->mlx_wind, 12, 16, 0x0, "MOVES: ");
+	mlx_string_put(var->mlx, var->mlx_wind, 10, 15, 16777215, "MOVES: ");
+	ft_putstr("Moves: ");
+	mlx_string_put(var->mlx, var->mlx_wind, 80, 15, 0x0, s);
+	mlx_string_put(var->mlx, var->mlx_wind, 78, 14, 0x0, s);
+	mlx_string_put(var->mlx, var->mlx_wind, 82, 16, 0x0, s);
+	mlx_string_put(var->mlx, var->mlx_wind, 80, 15, 16777215, s);
+	ft_putstr(s);
+	ft_putchar_void('\n');
+	free(s);
 }

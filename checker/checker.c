@@ -6,7 +6,7 @@
 /*   By: tterribi <tterribi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 15:46:08 by tterribi          #+#    #+#             */
-/*   Updated: 2022/04/28 15:05:54 by tterribi         ###   ########.fr       */
+/*   Updated: 2022/06/01 17:52:24 by tterribi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	entity_counter(t_entities entities, char *map)
 		}
 		y++;
 	}
+	free_matrix(matrix);
 }
 
 void	entitiy_checker(t_entities entities, char *map)
@@ -57,7 +58,7 @@ void	entitiy_checker(t_entities entities, char *map)
 		ft_printf("\033[31m_INVALID_NUMBER_OF_COLLECTIBLES\033[0m]");
 		exit(0);
 	}
-	printf("[\033[32mentitiy checker\033[0m]\n");
+	ft_printf("[\033[32mentitiy checker\033[0m]\n");
 }
 
 void	invalid_elements_checker(char *map)
@@ -70,14 +71,46 @@ void	invalid_elements_checker(char *map)
 		if (map[i] != '1' && map[i] != '0' && map[i] != 'E' && map[i] != 'C'
 			&& map[i] != 'P' && map[i] != 'H' && map[i] != '\n')
 		{
-			printf("_INVALID_MAP_, wrong cell: [%d]", i);
+			ft_printf("_INVALID_MAP_, wrong cell: [%d]", i + 2);
 			exit(0);
 		}
 		i++;
 	}
-	printf("[\033[32minvalid elements passed\033[0m]\n");
+	ft_printf("[\033[32minvalid elements passed\033[0m]\n");
 }
 
+void	new_lines_checker(char *map)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = ft_strlen(map);
+	while (i < len - 1)
+	{
+		if (map[i] == '\n' && map[i + 1] == '\n')
+		{
+			ft_printf("_INVALID_MAP_TWO_OR_MORE_CONSECUTIVE_NEW_LINES_ \n");
+			exit(0);
+		}
+		i++;
+	}
+}
+
+int	check(int keycode, t_data *var)
+{
+	if (keycode == KEY_UP || keycode == ARROW_UP)
+		p_moveup(var);
+	if (keycode == KEY_DOWN || keycode == ARROW_DOWN)
+		p_movedown(var);
+	if (keycode == KEY_LEFT || keycode == ARROW_LEFT)
+		p_moveleft(var);
+	if (keycode == KEY_RIGHT || keycode == ARROW_RIGHT)
+		p_moveright(var);
+	if (keycode == ESC)
+		exitporkodyo(var);
+	return (0);
+}
 // void	elements_string_manager(char *map, t_map struct_map)
 // {
 // 	int		fd;
@@ -106,7 +139,6 @@ void	invalid_elements_checker(char *map)
 // 	elements_string_manager(argv[1], map);
 // 	return (0);
 // }
-
 
 /*
 int main()
